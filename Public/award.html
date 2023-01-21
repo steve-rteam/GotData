@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf8">
+	<title>Actions List</title>
+	<meta name="theme-color" content="#d86300">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="icon" type="image/png" href="https://h8nw38w4.tinifycdn.com/Images/xfavoricon.png">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css">
+    <link href="https://kendo.cdn.telerik.com/2021.2.511/styles/kendo.bootstrap-v4.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-main.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default.mobile.min.css">
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/mjs/kendo.all.js" type="module"></script> <!-- Include all Kendo UI modules. -->
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jszip.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/mjs/kendo.grid.js" type="module"></script> 
+    <style>
+        img {
+          width: 100%;
+          height: auto;
+        }
+        .imgcenter {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            }
+      </style>
+</head>
+
+<body style="background-color:lightseagreen;">
+    <div class="center">
+        <h1 style="color:white; font-size:400%">Professional Service Solutions</h1>
+        <h1 style="color:white; font-size:200%">Actions</h1>
+        <img class="imgcenter" src="https://imagedelivery.net/DlZsjGDjyacHKV6POlheIA/2dd94926-5e11-4871-21ec-d28edf8dd200/Mobile" alt="Wealth API" style="width:400px;height:400px;">
+    </div>
+    <script src="functions.js"></script>
+
+    <div id="example">
+        <div id="grid"></div>
+        <style>
+            .k-grid {
+                font-weight: bold;
+                background-color: lightseagreen;
+                color: black;
+            }
+        </style>
+        <style>
+            h1 {
+                text-align: center;
+            }
+
+            h2 {
+                text-align: center;
+            }
+
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+
+            .pad {
+                padding-top: 150px;
+                padding-right: 150px;
+                padding-bottom: 150px;
+                padding-left: 150px;
+            }
+        </style>
+
+        <style>
+            .cards-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .k-card {
+                width: 285px;
+                margin: 5%;
+            }
+
+            .k-card-footer {
+                text-align: center;
+            }
+        </style>
+
+        <script>
+            $(document).ready(function () {
+                $("#grid").kendoGrid({
+                    dataSource: {
+                        data: functions,
+                        schema: {
+                            model: {
+                                fields: {
+                                    Description: { type: "string" },
+                                    Category: { type: "string" },
+                                    API: { type: "string" }
+                                }
+                            }
+                        },
+                        pageSize: 12
+                    },
+                    height: 800,
+                    scrollable: true,
+                    sortable: true,
+                    filterable: true,
+                    editable: "incell",
+                    pageable: true,
+                    navigatable: true,
+                    resizable: true,
+                    reorderable: true,
+                    groupable: true,
+                    toolbar: ["excel", "pdf", "search"],
+                    pageable: {
+                        input: true,
+                        numeric: false
+                    },
+                    columns: [
+                        {
+                            width: "80px",
+                            template: "<a class='k-button' style='background-color: lightseagreen' href='https://wealthapi.pages.dev/api/API-#: API #'>Select</a>"
+                        },
+                        { field: "API", title: "Actions", width: "120px" },
+                        { field: "Description", title: "Description" },
+                        { field: "Category", title: "Category" },
+                    ]
+                });
+            });
+        </script>
+
+    </div>
+
+</body>
+</html >
